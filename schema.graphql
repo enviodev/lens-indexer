@@ -1,0 +1,31 @@
+type EventsSummary {
+  id: ID!
+  approval: [Approval!]! @derivedFrom(field: "eventsSummary")
+  approvalsCount: BigInt!
+  approvalForAll: [ApprovalForAll!]! @derivedFrom(field: "eventsSummary")
+  approvalForAllsCount: BigInt!
+  transfer: [Transfer!]! @derivedFrom(field: "eventsSummary")
+  transfersCount: BigInt!
+}
+
+type Approval {
+  id: ID!
+  owner: String!
+  approved: String!
+  tokenId: BigInt!
+  eventsSummary: String!
+}
+type ApprovalForAll {
+  id: ID!
+  owner: String!
+  operator: String!
+  approved: Boolean!
+  eventsSummary: String!
+}
+type Transfer {
+  id: ID!
+  from: String!
+  to: String!
+  tokenId: BigInt!
+  eventsSummary: String!
+}

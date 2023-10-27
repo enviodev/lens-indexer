@@ -1,0 +1,20 @@
+name: LensHub
+description: lens
+networks:
+- id: 137
+  start_block: 0
+  contracts:
+  - name: LensHub
+    handler: src/EventHandlers.ts
+    address:
+    - 0xDb46d1Dc155634FbC732f92E853b10B288AD5a1d
+    events:
+    - event: Approval(address indexed owner, address indexed approved, uint256 indexed tokenId)
+      requiredEntities:
+      - name: EventsSummary
+    - event: ApprovalForAll(address indexed owner, address indexed operator, bool approved)
+      requiredEntities:
+      - name: EventsSummary
+    - event: Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
+      requiredEntities:
+      - name: EventsSummary
